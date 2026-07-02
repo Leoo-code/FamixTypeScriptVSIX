@@ -3,3 +3,5 @@ dist/
 *.vsix
 model.json
 .vscode-test/
+server/dist 2/
+**/.DS_Store
