@@ -4,6 +4,7 @@ import * as vscode from 'vscode';
 import { LanguageClient } from 'vscode-languageclient/node';
 
 export class TestHelper {
+    
     static getExtensionId(): string {
         const packageJsonPath = path.join(__dirname, '../../..', 'package.json');
         const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
