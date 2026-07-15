@@ -47,17 +47,17 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run build:client && npm run build:server",
-		"build:client": "cd client && node esbuild.js --production",
-		"build:server": "cd server && node esbuild.mjs --production",
 		"compile": "tsc -b",
 		"watch": "tsc -b -w",
 		"lint": "eslint",
 		"postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
 		"test:client": "npm run compile && npx @vscode/vsce package --allow-missing-repository --baseContentUrl https://github.com/Leoo-code/FamixTypeScriptImporter/blob/dev/vscode-extension && node ./client/dist/test/runTest.js",
-		"test:vsix": "npm run compile && npx @vscode/vsce package --allow-missing-repository --baseContentUrl https://github.com/Leoo-code/FamixTypeScriptImporter/blob/dev/vscode-extension && node ./client/dist/test/runTestVSIX.js",
+		"test:vsix": "npm run compile && npx @vscode/vsce package --allow-missing-repository && node ./scripts/run-vsix-tests.js",
 		"test": "npm run compile && node ./client/dist/test/runTest.js && cd server && npm run test",
-		"build:local": "cd ../FamixTypeScriptImporter && npm run build && npm link && cd ../test-isolated/server && npm link ts2famix && node esbuild.mjs",
 		"test:smoke": "ulimit -n 10240 && cd client && node esbuild.js && npx vscode-test",
+		"build:client": "cd client && node esbuild.js --production",
+		"build:server": "cd server && node esbuild.mjs --production",
+		"build:local-ts2famix": "cd ../FamixTypeScriptImporter && npm run build && npm link && cd ../test-isolated/server && npm link ts2famix && node esbuild.mjs",
 		"build": "cd server && npm install && node esbuild.mjs"
 	},
 	"devDependencies": {

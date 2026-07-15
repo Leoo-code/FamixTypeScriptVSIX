@@ -20,6 +20,22 @@ export default tseslint.config(
     ...tseslint.configs.recommended,
     ...tseslint.configs.stylistic,
     {
+        files: ['scripts/**/*.js'],
+        languageOptions: {
+            sourceType: 'commonjs',
+            globals: {
+                require: 'readonly',
+                module: 'readonly',
+                process: 'readonly',
+                __dirname: 'readonly',
+                console: 'readonly'
+            }
+        },
+        rules: {
+            '@typescript-eslint/no-require-imports': 'off'
+        }
+    },
+    {
         plugins: {
             '@stylistic': stylistic
         },
