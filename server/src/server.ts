@@ -54,7 +54,7 @@ connection.onInitialized(async () => {
         try {
             const result = await findTypeScriptProject(connection);
             if (result.isErr()) {
-                connection.window.showErrorMessage(result.error.message);
+                connection.console.log(`ts2famix: ${result.error.message}`);
                 return err(result.error);
             }
             const { tsConfigPath, baseUrl } = result.value;
